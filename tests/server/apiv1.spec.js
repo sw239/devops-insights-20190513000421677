@@ -199,6 +199,5 @@
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 F', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
-  
+ */ 
 }());
-*/
