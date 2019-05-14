@@ -43,7 +43,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
-                    var myLatLng = {lat: -36.8485, lng: 174.7633};
+                    var myLatLng = {lat: response.coord.lat, lng: response.coord.lon};
 
         			var map = new google.maps.Map(document.getElementById('googleMap'), {
           				zoom: 4,
