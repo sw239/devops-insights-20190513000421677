@@ -17,10 +17,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.zip1City = "";
     $scope.zip1Weather = "";
-    
+    var a,b,c,d;
+				var map = new google.maps.Map(document.getElementById('googleMap'), {
+          				zoom: 4,
+    			        center: {lat: -36.8485, lng: 174.7633}
+			        });
 
     $scope.zip = function(which) {
-
+		
         var data = "";
         if(which === 1) {
             data = $scope.zip1m;
@@ -39,11 +43,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
             	var myLatLng=null;
-				var a,b,c,d;
-				var map = new google.maps.Map(document.getElementById('googleMap'), {
-          				zoom: 4,
-    			        center: {lat: -36.8485, lng: 174.7633}
-			        });
+				
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
