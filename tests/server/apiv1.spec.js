@@ -96,8 +96,8 @@
         main: {
           temp: 78
         },
-        la:{lat:1 },
-        lo:{lon:1 }
+        coord:{lat:1 ,lon:1}
+        
         
       };
 
