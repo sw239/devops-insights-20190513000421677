@@ -28,7 +28,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 			        });
 	google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
-    infowindow.open(map,event.latLng);
+    
 	});
 
 function placeMarker(location) {
@@ -71,7 +71,7 @@ function placeMarker(location) {
     			    	map: map,
           				
         			});
-
+					infowindow.open(map,a);
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
