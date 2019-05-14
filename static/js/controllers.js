@@ -33,8 +33,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 
 function placeMarker(location) {
     var marker = new google.maps.Marker({
-        position: location,
-        
+        position: location,    
         map: map,
         
     });
