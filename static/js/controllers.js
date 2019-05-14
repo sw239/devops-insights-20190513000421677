@@ -28,7 +28,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
 	});
-
 function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
