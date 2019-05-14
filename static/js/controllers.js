@@ -39,7 +39,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
             	var myLatLng=null;
-				var marker=null;
+				
 				var map = new google.maps.Map(document.getElementById('googleMap'), {
           				zoom: 4,
     			        center: {lat: -36.8485, lng: 174.7633}
@@ -49,7 +49,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};			
 
-        			marker = new google.maps.Marker({
+        			var marker1 = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
           				
@@ -60,7 +60,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip2Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};			
 
-        			marker = new google.maps.Marker({
+        			var marker2 = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
           				
@@ -70,7 +70,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip3Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};			
 
-        		    marker = new google.maps.Marker({
+        		    var marker3 = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
           				
@@ -80,7 +80,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};			
 
-        			marker = new google.maps.Marker({
+        			var marker4 = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
           				
