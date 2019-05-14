@@ -44,7 +44,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
                     var uluru = {lat: -36.8485, lng: 174.7633};
-                    var marker = new google.maps.Marker({position: uluru, map: mapProp});
+                    var marker = new google.maps.Marker({position: uluru});
+					marker.setMap(mapProp); 
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
