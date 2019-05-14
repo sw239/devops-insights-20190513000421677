@@ -95,13 +95,10 @@
         ],
         main: {
           temp: 78
-        }
-        la:{
-        	lat: 1 
-        }
-        lo:{
-        	lon: 1 
-        }
+        },
+        la:{lat:1 },
+        lo:{lon:1 }
+        
       };
 
       var request = function( obj, callback ){
