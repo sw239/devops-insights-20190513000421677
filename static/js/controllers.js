@@ -1,9 +1,6 @@
 
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
-var map = new google.maps.Map(document.getElementById('googleMap'), {
-          				zoom: 4,
-    			        center: {lat: -36.8485, lng: 174.7633}
-			        });
+
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -43,6 +40,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             }).then( function(response) {
             	var myLatLng=null;
 				var marker=null;
+				var map = new google.maps.Map(document.getElementById('googleMap'), {
+          				zoom: 4,
+    			        center: {lat: -36.8485, lng: 174.7633}
+			        });
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
