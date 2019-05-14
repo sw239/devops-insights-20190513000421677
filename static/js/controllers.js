@@ -53,7 +53,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
         			var marker = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
-          				title: 'Hello World!'
+          				
         			});
 
                 } else if(which === 2) {
