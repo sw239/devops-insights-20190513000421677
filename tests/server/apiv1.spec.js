@@ -82,7 +82,7 @@
     it('with valid zip code', function() {
       reqMock = {
         query: {
-          zip: 'Hamilton'
+          zip: "Hamilton"
         }
       };
 
