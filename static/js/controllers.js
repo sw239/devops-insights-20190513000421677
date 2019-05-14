@@ -18,6 +18,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1City = "";
     $scope.zip1Weather = "";
     var a,b,c,d;
+    var marker
     var infowindow = new google.maps.InfoWindow({
   	content:"Hello World!"
 	});
@@ -32,13 +33,13 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	});
 
 function placeMarker(location) {
-    var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
         position: location,    
         map: map,
         
     });
 }    
-
+infowindow.open(map,marker);
 
     $scope.zip = function(which) {
 		
@@ -71,7 +72,7 @@ function placeMarker(location) {
     			    	map: map,
           				
         			});
-					infowindow.open(map,a);
+					
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
