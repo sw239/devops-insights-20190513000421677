@@ -32,8 +32,7 @@ exports.getWeather = function(req, res) {
     		if(body.cod === 200) {
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' F';
     			var response = {city: body.name, weather: weath};
-    			var uluru = {lat: body.coord.lat, lng: body.coord.lon};
-            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
+    			
     			return res.status(200).send(response);
     		} else {
                 return res.status(400).send({msg:'Failed'});
