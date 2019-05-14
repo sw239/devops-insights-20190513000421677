@@ -18,22 +18,28 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1City = "";
     $scope.zip1Weather = "";
     var a,b,c,d;
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
+    var infowindow = new google.maps.InfoWindow({
+  	content:"Hello World!"
+	});
+
 				var map = new google.maps.Map(document.getElementById('googleMap'), {
           				zoom: 4,
     			        center: {lat: -36.8485, lng: 174.7633}
 			        });
 	google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
+    infowindow.open(map,event.latLng);
 	});
+
 function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-        label: labels[labelIndex++ % labels.length],
-        map: map
+        
+        map: map,
+        
     });
 }    
+
 
     $scope.zip = function(which) {
 		
