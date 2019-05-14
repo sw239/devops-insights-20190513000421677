@@ -1,5 +1,9 @@
 
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
+var map = new google.maps.Map(document.getElementById('googleMap'), {
+          				zoom: 4,
+    			        center: {lat: -36.8485, lng: 174.7633}
+			        });
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -32,25 +36,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
         } 
 
         if(data.length >= 4) {
+        	
             $http({
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
-            	//var uluru = {lat: -36.8485, lng: 174.7633};
-            	//var uluru = {lat: response.coord.lat, lng: response.coord.lon};
-            	//var marker = new google.maps.Marker({position: uluru, map: mapProp});
-            	//var marker = new google.maps.Marker({position: uluru, map: mapProp});
+            	var myLatLng=null;
+				var marker=null;
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
-                    var myLatLng = {lat: response.data.la, lng: response.data.lo};
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
 
-        			var map = new google.maps.Map(document.getElementById('googleMap'), {
-          				zoom: 4,
-    			        center: myLatLng
-			        });
-
-        			var marker = new google.maps.Marker({
+        			marker = new google.maps.Marker({
          				position: myLatLng,
     			    	map: map,
           				
@@ -59,12 +57,33 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+
+        			marker = new google.maps.Marker({
+         				position: myLatLng,
+    			    	map: map,
+          				
+        			});
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+
+        		    marker = new google.maps.Marker({
+         				position: myLatLng,
+    			    	map: map,
+          				
+        			});
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+
+        			marker = new google.maps.Marker({
+         				position: myLatLng,
+    			    	map: map,
+          				
+        			});
                 } 
             });
         } else {
