@@ -24,7 +24,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
           				zoom: 4,
     			        center: {lat: -36.8485, lng: 174.7633}
 			        });
-			        
 	google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
 	});
