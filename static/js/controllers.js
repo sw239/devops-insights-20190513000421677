@@ -36,10 +36,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
-            	var uluru = {lat: -36.8485, lng: 174.7633};
+            	//var uluru = {lat: -36.8485, lng: 174.7633};
             	//var uluru = {lat: response.coord.lat, lng: response.coord.lon};
             	//var marker = new google.maps.Marker({position: uluru, map: mapProp});
-            	var marker = new google.maps.Marker({position: uluru, map: mapProp});
+            	//var marker = new google.maps.Marker({position: uluru, map: mapProp});
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
