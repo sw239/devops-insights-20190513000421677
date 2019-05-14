@@ -18,6 +18,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1City = "";
     $scope.zip1Weather = "";
     var a,b,c,d;
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labelIndex = 0;
 				var map = new google.maps.Map(document.getElementById('googleMap'), {
           				zoom: 4,
     			        center: {lat: -36.8485, lng: 174.7633}
@@ -29,7 +31,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 
 function placeMarker(location) {
     var marker = new google.maps.Marker({
-        position: location, 
+        position: location,
+        label: labels[labelIndex++ % labels.length],
         map: map
     });
 }    
