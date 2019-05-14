@@ -43,9 +43,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
-                    var uluru = {lat: -36.8485, lng: 174.7633};
-                    var marker = new google.maps.Marker({position: uluru});
-					marker.setMap(mapProp); 
+                    var myLatLng = {lat: -36.8485, lng: 174.7633};
+
+        			var map = new google.maps.Map(document.getElementById('googleMap'), {
+          				zoom: 4,
+    			        center: myLatLng
+			        });
+
+        			var marker = new google.maps.Marker({
+         				position: myLatLng,
+    			    	map: map,
+          				title: 'Hello World!'
+        			});
+
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
