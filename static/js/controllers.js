@@ -29,6 +29,12 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     placeMarker(event.latLng);
    
     });
+   /* var infowindow = new google.maps.InfoWindow({
+    		content: txt
+  			});
+marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });*/   
 
 function placeMarker(location) {
         marker = new google.maps.Marker({
@@ -53,16 +59,12 @@ function placeMarker(location) {
 				}
 				
 					txt="Weather is:  "+z[i+2];
+					alert(txt);
             });
             
   			
 }
-var infowindow = new google.maps.InfoWindow({
-    		content: txt
-  			});
-marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });   
+
 
 
     $scope.zip = function(which) {
