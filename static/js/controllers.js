@@ -47,7 +47,7 @@ function placeMarker(location) {
     alert(lat);
     alert(lon);
     //alert(JSON.parse(ary[0]+','+ary[1]));
-    var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
+    /*var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
                 url: 'https://openweathermap.org/data/2.5/weather?lat='+st
@@ -60,7 +60,7 @@ function placeMarker(location) {
 				}
 				
 					alert("Weather is:  "+z[i+2]);
-            });
+            });*/
 }   
 infowindow.open(map,marker);
 
