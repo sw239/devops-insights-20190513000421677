@@ -40,11 +40,11 @@ function ajaxError(message) {
 	var ajaxRequest = function (method, url, data, callback, err){
 		var request = new XMLHttpRequest();
 		request.open(method, url, true);
-		if (method === 'POST')
+		if (method == "POST")
 			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
 		request.onreadystatechange = function(){
-		if (request.readyState === 4) {
-			if (request.status === 200) {
+		if (request.readyState == 4) {
+			if (request.status == 200) {
 				let response = JSON.parse(request.responseText);
 				callback(response);
 				}
