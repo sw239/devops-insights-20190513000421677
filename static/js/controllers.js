@@ -18,8 +18,9 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1Weather = "";
     var a,b,c,d;
     var marker;
+    var txt=null;
     var infowindow = new google.maps.InfoWindow({
-      content:"Hello World!"
+      content:txt
     });
 
                 var map = new google.maps.Map(document.getElementById('googleMap'), {
@@ -53,10 +54,11 @@ function placeMarker(location) {
 				i++;
 				}
 				
-					alert("Weather is:  "+z[i+2]);
+					txt="Weather is:  "+z[i+2];
             });
+            infowindow.open(map,marker);
 }   
-infowindow.open(map,marker);
+
 
     $scope.zip = function(which) {
        
