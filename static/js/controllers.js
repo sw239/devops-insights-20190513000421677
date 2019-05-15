@@ -29,7 +29,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 			        });
 	google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
-    
+    alert(event.latLng);
 	});
 
 function placeMarker(location) {
