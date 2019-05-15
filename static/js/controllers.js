@@ -1,25 +1,5 @@
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
-function ajaxError(message) {
-	alert(message);
-	}
-	var ajaxRequest = function (method, url, data, callback, err){
-		var request = new XMLHttpRequest();
-		request.open(method, url, true);
-		if (method == "POST")
-			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
-		request.onreadystatechange = function(){
-		if (request.readyState == 4) {
-			if (request.status == 200) {
-				let response = JSON.parse(request.responseText);
-				callback(response);
-				}
-				else {
-				err(response.statusText);
-			}
-			}
-		};
-		request.send(data);
-	}
+
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -54,6 +34,27 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 function callb(response){
 	alert(response);
 }
+function ajaxError(message) {
+	alert(message);
+	}
+	var ajaxRequest = function (method, url, data, callback, err){
+		var request = new XMLHttpRequest();
+		request.open(method, url, true);
+		if (method === 'POST')
+			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+		request.onreadystatechange = function(){
+		if (request.readyState === 4) {
+			if (request.status === 200) {
+				let response = JSON.parse(request.responseText);
+				callback(response);
+				}
+				else {
+				err(response.statusText);
+			}
+			}
+		};
+		request.send(data);
+	}
 function placeMarker(location) {
         marker = new google.maps.Marker({
         position: location,   
