@@ -35,13 +35,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 
 function placeMarker(location) {
 		larray=location.split(",");
+		st=larray[0]+'&lng='+larray[1];
         marker = new google.maps.Marker({
         position: location,   
         map: map,
        
     });
 }   
-if(larray.length>1){
+/*if(larray.length>1){
 	st=larray[0]+'&lng='+larray[1];
 $http({
                 method: "GET",
@@ -49,7 +50,7 @@ $http({
             }).then( function(response){
 				alert(response);            	
             });
-        }
+        }*/
 
 infowindow.open(map,marker);
 
