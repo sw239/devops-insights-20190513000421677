@@ -35,9 +35,9 @@ function addInfoWindow(marker, message) {
                 content: message
             });
 
-            google.maps.event.addListener(marker, 'click', function () {
+            
                 infoWindow.open(map, marker);
-            });
+            
         }
 
 function placeMarker(location) {
