@@ -30,16 +30,21 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     });
     google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
-   
+    /*$http({
+                method: "GET",
+                url: '/api/v1/getWeather?lat='+ st
+            }).then( function(response){
+				alert(response);  
+				placeMarker(event.latLng,response);
+            });*/
     });
 
 function placeMarker(location) {
-		larray=location.split(",");
-		st=larray[0]+'&lng='+larray[1];
+		
         marker = new google.maps.Marker({
         position: location,   
         map: map,
-       
+        
     });
 }   
 /*if(larray.length>1){
