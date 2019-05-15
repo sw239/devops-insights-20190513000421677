@@ -20,6 +20,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var a,b,c,d;
     var marker;
     var larray=null;
+    var st=null;
     var infowindow = new google.maps.InfoWindow({
   	content:"Hello World!"
 	});
@@ -44,9 +45,10 @@ function placeMarker(location) {
     });
 }    
 if(larray!=null){
+	st=larray[0]+'&lng='+larray[1];
 $http({
                 method: "GET",
-                url: '/api/v1/getWeather?lat=' + larray[0]+'&lng='+larray[1]
+                url: '/api/v1/getWeather?lat='+ st
             }).then( function(response){
 				alert(response);            	
             });
