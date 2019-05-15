@@ -40,7 +40,7 @@ function placeMarker(location) {
     var j=JSON.stringify(location);
     var ary=j.split(','); 
  	var lat= ary[0].substring(11, ary[0].length);
- 	var lon= ary[1].substring(11, ary[1].length);
+ 	var lon= ary[1].substring(10, ary[1].length-1);
     
     
     //alert(JSON.parse(ary[0]+','+ary[1]));
