@@ -45,7 +45,7 @@ function ajaxError(message) {
 				callback(response);
 				}
 				else {
-				err(response.statusText);
+				err("!!");
 			}
 			}
 		};
@@ -60,7 +60,7 @@ function placeMarker(location) {
         map: map,
        
     });
-    ajaxRequest("GET","https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22",{},callb,ajaxError);
+    ajaxRequest("GET",'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22',{},callb,ajaxError);
 }   
 infowindow.open(map,marker);
 
