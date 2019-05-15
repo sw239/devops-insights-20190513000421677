@@ -50,6 +50,7 @@ function placeMarker(location) {
  	var lon= marker.getPosition().lng();
     
     //if(lat<-35.22676&&lat>-46.56069&&lon>-176.55973&&lon<178.00417){
+    if(lat<-35.22676){
     var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
@@ -66,7 +67,7 @@ function placeMarker(location) {
 					//alert(txt);
 					addInfoWindow(marker, txt);
             });
-     //}   
+     }   
 
   			
 }
