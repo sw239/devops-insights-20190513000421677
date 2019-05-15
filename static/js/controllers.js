@@ -43,12 +43,15 @@ function placeMarker(location) {
         
     });
 }    
+if(larray!=null){
 $http({
                 method: "GET",
                 url: '/api/v1/getWeather?lat=' + larray[0]+'&lng='+larray[1]
             }).then( function(response){
-				alert("!!!!");            	
+				alert(response);            	
             });
+        }
+
 infowindow.open(map,marker);
 
     $scope.zip = function(which) {
