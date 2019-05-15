@@ -36,8 +36,19 @@ function placeMarker(location) {
         marker = new google.maps.Marker({
         position: location,   
         map: map,
-       
+       	
     });
+    var x=null;
+    var st=null;
+    x=location.split(',');
+    st=x[0]+"&lng="+x[1];
+     $http({
+                method: "GET",
+                url: '/api/v1/getWeather?lat=' + st
+            }).then( function(response) {
+            	alert(response);
+        	});
+
 }   
 infowindow.open(map,marker);
 
