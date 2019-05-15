@@ -39,7 +39,7 @@ function placeMarker(location) {
                 method: "GET",
                 url: '/api/v1/getWeather?lat=' + larray[0]+'&lng='+larray[1]
             }).then( function(response){
-				alert(response.data.weather);            	
+				alert("!!!!");            	
             });
         marker = new google.maps.Marker({
         position: location,    
