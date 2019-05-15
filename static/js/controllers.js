@@ -75,7 +75,7 @@ infowindow.open(map,marker);
 	.then(response=>response.json())
 	.then(function(data){
 		document.getElementById("S").innerHTML="Sunrise at: "+data.results.sunrise+"  Sunset at: "+data.results.sunset;
-	});
+	})
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
