@@ -41,7 +41,7 @@ function placeMarker(location) {
                 method: "GET",
                 url: 'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22',
                 
-            }).then(response=>response.json())
+            })
             .then( function(response) {
                 var y=JSON.stringify(response); var z=y.split('"'); var i=0;
 				while(z[i]!=="main"){
