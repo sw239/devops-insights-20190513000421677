@@ -27,6 +27,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     });
     google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
+    alert(typeof event.latLng);
    
     });
 function addInfoWindow(marker, message) {
