@@ -42,8 +42,11 @@ function placeMarker(location) {
                 url: 'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22',
                 
             }).then( function(response) {
-                var z =response.split('"');
-				alert(a[13]);
+                var z=response.split('"'); var i=0;
+				while(z[i]!=="main"){
+				i++;
+				}
+					alert("weather is:   "+z[i+2]);
             });
 }   
 infowindow.open(map,marker);
