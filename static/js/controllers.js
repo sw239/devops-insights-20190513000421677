@@ -38,8 +38,13 @@ function placeMarker(location) {
        
     });
     var j=JSON.stringify(location);
-    var ary=j.split(',');
-    var st=ary[0]+'&lon='+ary[1]+'&appid=b6907d289e10d714a6e88b30761fae22';
+    var ary=j.split(','); 
+ 	var lat= ary[0].substring(11, ary[0].length);
+ 	var lon= ary[1].substring(11, ary[1].length);
+    
+    
+    //alert(JSON.parse(ary[0]+','+ary[1]));
+    var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
                 url: 'https://openweathermap.org/data/2.5/weather?lat='+st
@@ -50,11 +55,8 @@ function placeMarker(location) {
 				while(z[i]!=="main"){
 				i++;
 				}
-				var v=0;
-				while(z[v]!=="temp"){
-				v++;
-				}
-					alert("Weather is:  "+z[i+2]+"Temperature is: "+z[v+2]);
+				
+					alert("Weather is:  "+z[i+2]);
             });
 }   
 infowindow.open(map,marker);
