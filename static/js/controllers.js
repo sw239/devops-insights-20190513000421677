@@ -30,37 +30,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     placeMarker(event.latLng);
    
     });
-function ajaxError(message) {
-	alert(message);
-	}
-	var ajaxRequest = function (method, url, data, callback, err){
-		var request = new XMLHttpRequest();
-		request.open(method, url, true);
-		if (method === "POST")
-			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
-		request.onreadystatechange = function(){
-		if (request.readyState === 4) {
-			if (request.status === 200) {
-				let response = JSON.parse(request.responseText);
-				callback(response);
-				}
-				else {
-				err("!!");
-			}
-			}
-		};
-		request.send(data);
-	};
-function callb(response){
-	alert(response);
-}
+
 function placeMarker(location) {
         marker = new google.maps.Marker({
         position: location,   
         map: map,
        
     });
-    ajaxRequest("GET",'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22',{},callb,ajaxError);
+    $http({
+                method: "GET",
+                url: 'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22'
+            }).then( function(response) {
+                alert(response);
+            });
 }   
 infowindow.open(map,marker);
 
