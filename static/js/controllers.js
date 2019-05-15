@@ -44,7 +44,7 @@ function placeMarker(location) {
         
     });
 }    
-/*if(larray!==null){
+/*if(larray.length>0){
 	st=larray[0]+'&lng='+larray[1];
 $http({
                 method: "GET",
@@ -54,7 +54,7 @@ $http({
             });
         }*/
 
-infowindow.open(map,marker);
+//infowindow.open(map,marker);
 
     $scope.zip = function(which) {
 		
