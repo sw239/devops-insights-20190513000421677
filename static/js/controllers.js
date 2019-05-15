@@ -37,9 +37,11 @@ function placeMarker(location) {
         map: map,
        
     });
+    var ary=location.split(',');
+    var st=ary[0]+'&lon='+ary[1]+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
-                url: 'https://openweathermap.org/data/2.5/weather?lat=-36.8485&lon=174.7633&appid=b6907d289e10d714a6e88b30761fae22',
+                url: 'https://openweathermap.org/data/2.5/weather?lat='+st
                 
             })
             .then( function(response) {
@@ -47,7 +49,7 @@ function placeMarker(location) {
 				while(z[i]!=="main"){
 				i++;
 				}
-					alert("weather is:   "+z[i+2]);
+					alert(y);
             });
 }   
 infowindow.open(map,marker);
