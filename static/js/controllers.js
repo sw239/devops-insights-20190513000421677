@@ -49,7 +49,11 @@ function placeMarker(location) {
 				while(z[i]!=="main"){
 				i++;
 				}
-					alert(y);
+				var v=0;
+				while(z[v]!=="pressure"){
+				v++;
+				}
+					alert("Weather is:  "+z[i+2]+"Temperature is: "+z[v-2]);
             });
 }   
 infowindow.open(map,marker);
