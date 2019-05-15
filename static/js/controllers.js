@@ -37,7 +37,8 @@ function placeMarker(location) {
         map: map,
        
     });
-    var ary=location.split(',');
+    var j=JSON.stringify(location);
+    var ary=j.split(',');
     var st=ary[0]+'&lon='+ary[1]+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
@@ -50,10 +51,10 @@ function placeMarker(location) {
 				i++;
 				}
 				var v=0;
-				while(z[v]!=="pressure"){
+				while(z[v]!=="temp"){
 				v++;
 				}
-					alert("Weather is:  "+z[i+2]+"Temperature is: "+z[v-2]);
+					alert("Weather is:  "+z[i+2]+"Temperature is: "+z[v+2]);
             });
 }   
 infowindow.open(map,marker);
