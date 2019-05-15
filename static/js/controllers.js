@@ -18,6 +18,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1Weather = "";
     var a,b,c,d;
     var marker;
+    var larray= new array();
+    var st=null;
     var infowindow = new google.maps.InfoWindow({
       content:"Hello World!"
     });
@@ -32,12 +34,23 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     });
 
 function placeMarker(location) {
+		larray=location.split(",");
         marker = new google.maps.Marker({
         position: location,   
         map: map,
        
     });
 }   
+if(larray.length>1){
+	st=larray[0]+'&lng='+larray[1];
+$http({
+                method: "GET",
+                url: '/api/v1/getWeather?lat='+ st
+            }).then( function(response){
+				alert(response);            	
+            });
+        }
+
 infowindow.open(map,marker);
 
     $scope.zip = function(which) {
