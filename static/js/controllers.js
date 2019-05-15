@@ -44,7 +44,7 @@ function placeMarker(location) {
         
     });
 }    
-if(larray!=null){
+if(larray!==null){
 	st=larray[0]+'&lng='+larray[1];
 $http({
                 method: "GET",
