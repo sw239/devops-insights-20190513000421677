@@ -33,7 +33,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	});
 
 function placeMarker(location) {
-		alert(location);
+		
+		var larray = location.split(',');
+		$http({
+                method: "GET",
+                url: '/api/v1/getWeather?lat=' + larray[0]+'&lng='+larray[1]
+            }).then( function(response){
+				alert(response.data.weather);            	
+            });
         marker = new google.maps.Marker({
         position: location,    
         map: map,
