@@ -41,13 +41,13 @@ function placeMarker(location) {
     var x=null;
     var st=null;
     x=location.split(',');
-    st=x[0]+"&lng="+x[1];
+    st=x[0]+"&lon="+x[1]+"&appid=db0dc2acf767f83ef1c7f7c73987a247";
      $http({
                 method: "GET",
-                url: '/api/v1/getWeather?lat=' + st
+                url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + st
             }).then( function(response) {
             	
-            	alert(response.data.weather);
+            	alert(response);
         	});
 
 }   
