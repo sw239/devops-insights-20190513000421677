@@ -1,4 +1,3 @@
-
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
 
@@ -19,45 +18,30 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1Weather = "";
     var a,b,c,d;
     var marker;
-    var larray=null;
-    var st=null;
     var infowindow = new google.maps.InfoWindow({
-  	content:"Hello World!"
-	});
+      content:"Hello World!"
+    });
 
-				var map = new google.maps.Map(document.getElementById('googleMap'), {
-          				zoom: 4,
-    			        center: {lat: -36.8485, lng: 174.7633}
-			        });
-	google.maps.event.addListener(map, 'click', function(event) {
+                var map = new google.maps.Map(document.getElementById('googleMap'), {
+                          zoom: 4,
+                        center: {lat: -36.8485, lng: 174.7633}
+                    });
+    google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
-    
-	});
+   
+    });
 
 function placeMarker(location) {
-		
-		larray = location.split(',');
-		
         marker = new google.maps.Marker({
-        position: location,    
+        position: location,   
         map: map,
-        
+       
     });
-}    
-/*if(larray.length>0){
-	st=larray[0]+'&lng='+larray[1];
-$http({
-                method: "GET",
-                url: '/api/v1/getWeather?lat='+ st
-            }).then( function(response){
-				alert(response);            	
-            });
-        }*/
-
-//infowindow.open(map,marker);
+}   
+infowindow.open(map,marker);
 
     $scope.zip = function(which) {
-		
+       
         var data = "";
         if(which === 1) {
             data = $scope.zip1m;
@@ -67,58 +51,58 @@ $http({
             data = $scope.zip3m;
         } else if(which === 4) {
             data = $scope.zip4m;
-        } 
+        }
 
         if(data.length >= 4) {
-        	
+           
             $http({
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + data
             }).then( function(response) {
-            	var myLatLng=null;
-				
+                var myLatLng=null;
+               
                 if(which === 1) {
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
-                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-        			a= new google.maps.Marker({
-         				position: myLatLng,
-    			    	map: map,
-          				
-        			});
-					
+                    a= new google.maps.Marker({
+                         position: myLatLng,
+                        map: map,
+                         
+                    });
+                   
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
-                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-        			b = new google.maps.Marker({
-         				position: myLatLng,
-    			    	map: map,
-          				
-        			});
+                    b = new google.maps.Marker({
+                         position: myLatLng,
+                        map: map,
+                         
+                    });
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
-                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-        		    c = new google.maps.Marker({
-         				position: myLatLng,
-    			    	map: map,
-          				
-        			});
+                    c = new google.maps.Marker({
+                         position: myLatLng,
+                        map: map,
+                         
+                    });
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
-                    myLatLng = {lat: response.data.la, lng: response.data.lo};			
+                    myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-        			d = new google.maps.Marker({
-         				position: myLatLng,
-    			    	map: map,
-          				
-        			});
-                } 
+                    d = new google.maps.Marker({
+                         position: myLatLng,
+                        map: map,
+                         
+                    });
+                }
             });
         } else {
             if(which === 1) {
@@ -133,8 +117,8 @@ $http({
                 } else if(which === 4) {
                     $scope.zip4City = "";
                     $scope.zip4Weather = "";
-                } 
+                }
         }
     };
-    
+   
 }]);
