@@ -46,6 +46,7 @@ function placeMarker(location) {
                 method: "GET",
                 url: '/api/v1/getWeather?lat=' + st
             }).then( function(response) {
+            	alert("!!!");
             	alert(response);
         	});
 
