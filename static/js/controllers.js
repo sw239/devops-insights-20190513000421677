@@ -31,30 +31,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     placeMarker(event.latLng);
     
     });
-function callb(response){
-	alert(response);
-}
-function ajaxError(message) {
-	alert(message);
-	}
-	var ajaxRequest = function (method, url, data, callback, err){
-		var request = new XMLHttpRequest();
-		request.open(method, url, true);
-		if (method == "POST")
-			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
-		request.onreadystatechange = function(){
-		if (request.readyState == 4) {
-			if (request.status == 200) {
-				let response = JSON.parse(request.responseText);
-				callback(response);
-				}
-				else {
-				err(response.statusText);
-			}
-			}
-		};
-		request.send(data);
-	}
+
 function placeMarker(location) {
         marker = new google.maps.Marker({
         position: location,   
@@ -67,7 +44,11 @@ function placeMarker(location) {
     //st=x[0]+'&lon='+x[1]+'&appid=db0dc2acf767f83ef1c7f7c73987a247';
     st=x[0]+'&lon='+x[1]+'&appid=b6907d289e10d714a6e88b30761fae22';
     //https://openweathermap.org/data/2.5/weather?lat=37.509313&lon=127.080708&appid=b6907d289e10d714a6e88b30761fae22
-    ajaxRequest('GET','https://openweathermap.org/data/2.5/weather?lat=' + st,{},callb,ajaxError);
+    fetch('https://openweathermap.org/data/2.5/weather?lat='+ st)
+    .then(response=>response.json())
+	.then(function(data){
+		alert(data);
+	});
     
 }   
 infowindow.open(map,marker);
