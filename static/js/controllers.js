@@ -29,8 +29,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var myLatLng = event.latLng;
     	var lat = myLatLng.lat();
     	var lon = myLatLng.lng();
-    	//alert(lat);
-    	//alert(typeof lon);
+    	
     	   if(lat<-35.22676 && lat>-46.56069 && lon>166.55973 && lon<178.00417){
     	placeMarker(event.latLng);
 		}
