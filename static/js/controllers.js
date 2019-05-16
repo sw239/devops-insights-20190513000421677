@@ -31,7 +31,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var lon = myLatLng.lng();
     	//alert(lat);
     	//alert(typeof lon);
-    	   if(lat<-35.22676 && lat>-46.56069 && lon>176.55973 && lon<178.00417){
+    	   if(lat<-35.22676 && lat>-46.56069 && lon>166.55973 && lon<178.00417){
     	placeMarker(event.latLng);
 		}
 
@@ -76,7 +76,7 @@ function placeMarker(location) {
 				k++;
 				}
 				
-					txt="Weather is:  "+z[i+2]+"  temperature is:  "+z[k+2];
+					txt="Weather is:  "+z[i+2]+"  temperature is:  "+z[k+1];
 					//alert(txt);
 					addInfoWindow(marker, txt);
             });
