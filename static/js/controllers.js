@@ -25,7 +25,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                           zoom: 4,
                         center: {lat: -36.8485, lng: 174.7633}
                     });
-    /*google.maps.event.addListener(map, 'click', function(event) {
+    google.maps.event.addListener(map, 'click', function(event) {
     	var myLatLng = event.latLng;
     	var lat = myLatLng.lat();
     	var lon = myLatLng.lng();
@@ -58,8 +58,6 @@ function placeMarker(location) {
  	var lon= marker.getPosition().lng();
     
     
-//    if(lat<-35.22676 && lat>-46.56069 && lon>-176.55973 && lon<178.00417){
-    
     var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
@@ -77,13 +75,12 @@ function placeMarker(location) {
 				}
 				
 					txt="Weather is:  "+z[i+2]+"  temperature is:  "+z[k+1];
-					//alert(txt);
+					
 					addInfoWindow(marker, txt);
-            });
-    // }   
+            }); 
 
   			
-}*/
+}
 
 
 
