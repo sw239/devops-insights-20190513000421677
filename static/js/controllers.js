@@ -71,8 +71,12 @@ function placeMarker(location) {
 				while(z[i]!=="main"){
 				i++;
 				}
+				var k=0;
+				while(z[k]!=="temp"){
+				k++;
+				}
 				
-					txt="Weather is:  "+z[i+2];
+					txt="Weather is:  "+z[i+2]+"  temperature is:  "+z[k+2];
 					//alert(txt);
 					addInfoWindow(marker, txt);
             });
