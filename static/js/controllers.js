@@ -26,8 +26,13 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                         center: {lat: -36.8485, lng: 174.7633}
                     });
     google.maps.event.addListener(map, 'click', function(event) {
-    placeMarker(event.latLng);
-    alert(typeof event.latLng);
+    	var myLatLng = event.latLng;
+    	var lat = myLatLng.lat();
+    	var lon = myLatLng.lng();
+    	    if(lat<-35.22676 && lat>-46.56069 && lon>-176.55973 && lon<178.00417){
+    	placeMarker(event.latLng);
+}
+
    
     });
 function addInfoWindow(marker, message) {
@@ -49,10 +54,10 @@ function placeMarker(location) {
     });   
  	var lat= marker.getPosition().lat();
  	var lon= marker.getPosition().lng();
-    //alert(typeof lat);
     
-    if(lat<-35.22676 && lat>-46.56069 && lon>-176.55973 && lon<178.00417){
-    //if(lat<-35.22676){
+    
+//    if(lat<-35.22676 && lat>-46.56069 && lon>-176.55973 && lon<178.00417){
+    
     var st=lat+'&lon='+lon+'&appid=b6907d289e10d714a6e88b30761fae22';
     $http({
                 method: "GET",
@@ -69,7 +74,7 @@ function placeMarker(location) {
 					//alert(txt);
 					addInfoWindow(marker, txt);
             });
-     }   
+    // }   
 
   			
 }
